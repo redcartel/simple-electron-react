@@ -5,9 +5,10 @@
   "homepage": "./",
   "private": true,
   "scripts": {
-    "start": "yarn start:electron",
-    "start:web": "env-cmd -f .env.web craco start --config craco.config.web.js",
-    "start:electron": "electron .",
+    "start": "BROWSER=none craco start --config craco.config.electron",
+    "dev": "concurrently \"yarn start\" \"ELECTRON_IS_DEV=1 wait-on http://localhost:3000 && electron .\"",
+    "start:web": "craco start --config craco.config.web.js",
+    "start:electron": "craco start",
     "start:electron-dev": "electron electron-dev.js",
     "build": "yarn build:electron",
     "build:web": "craco build --config craco.config.web.js",
@@ -31,19 +32,18 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "@craco/craco": "^5.2.1",
     "@types/jest": "24.0.13",
     "@types/node": "12.0.3",
     "@types/react": "16.8.19",
     "@types/react-dom": "16.8.4",
+    "electron-is-dev": "^1.1.0",
+    "env-cmd": "^9.0.2",
+    "npm-watch": "^0.6.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-scripts": "3.0.1",
-    "typescript": "3.5.1",
-    "@craco/craco": "^5.2.1",
-    "electron": "^5.0.2",
-    "electron-builder": "^20.41.0",
-    "env-cmd": "^9.0.2",
-    "npm-watch": "^0.6.0"
+    "typescript": "3.5.1"
   },
   "repository": {
     "type": "git",
@@ -53,5 +53,12 @@
     "react,create-react-app,cra,craco,electron,electron-builder"
   ],
   "author": "Andrew Rapo <andrew@wwlib.org> (http://wwlib.org/)",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "electron": "^5.0.2",
+    "electron-builder": "^20.41.0",
+    "concurrently": "^4.1.2",
+    "electron-devtools-installer": "^2.2.4",
+    "wait-on": "^3.3.0"
+  }
 }

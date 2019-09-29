@@ -7,6 +7,10 @@ const BrowserWindow = electron.BrowserWindow;
 const path = require('path');
 const url = require('url');
 
+const isDev = require('electron-is-dev')
+
+const { default: installExtension, REACT_DEVELOPER_TOOLS } = require('electron-devtools-installer')
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let mainWindow;
@@ -18,11 +22,17 @@ function createWindow() {
 
     // and load the index.html of the app.
     console.log(__dirname);
-    // mainWindow.loadURL('http://localhost:3000');
-    mainWindow.loadFile(path.join(__dirname, "../build/index.html"));
-
-    // Open the DevTools.
+  if (isDev) {
+    mainWindow.loadURL('http://localhost:3000');
+    installExtension(REACT_DEVELOPER_TOOLS).then((name) => {
+      console.log(`Added extension ${name}`)
+    }).catch((err)=> {
+      console.log(`installExtension error ${err}`)
+    })
     mainWindow.webContents.openDevTools();
+  } else {
+    mainWindow.loadFile(path.join(__dirname, "../build/index.html"));
+  }
 
     // Emitted when the window is closed.
     mainWindow.on('closed', function () {
