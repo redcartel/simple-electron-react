@@ -1,16 +1,30 @@
 {
-  "name": "cra-craco-electron-example",
-  "version": "0.1.1",
+  "name": "simple-electron-react",
+  "description": "A simpler Electron & React that solves some problems",
+  "version": "0.1.0",
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
+  "build": {
+    "appId": "your.id",
+    "copyright": "Your Copyright Message",
+    "productName": "Simple Electron React",
+    "directories": {
+        "buildResources": "assets"
+    },
+    "mac": {
+        "category": "public.app-category.utilities"
+    }
+  },
   "scripts": {
     "start": "BROWSER=none craco start --config craco.config.electron",
     "dev": "concurrently \"yarn start\" \"ELECTRON_IS_DEV=1 wait-on http://localhost:3000 && electron .\"",
     "build": "yarn build:electron",
     "build:electron": "env-cmd -f .env.electron craco build --config craco.config.electron.js",
     "test": "craco test",
-    "eject": "craco eject"
+    "eject": "craco eject",
+    "pack": "electron-builder --dir",
+    "dist": "electron-builder"
   },
   "watch": {
     "build:electron": "src/**/*.*"
@@ -28,8 +42,7 @@
     "electron-is-dev": "^1.1.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "^3.1.2",
-    "typescript": "^3.6.3"
+    "react-scripts": "^3.1.2"
   },
   "repository": {
     "type": "git",
@@ -44,8 +57,10 @@
     "@craco/craco": "^5.2.1",
     "concurrently": "^4.1.2",
     "electron": "^5.0.2",
-    "electron-builder": "^20.41.0",
+    "electron-builder": "^21.2.0",
     "electron-devtools-installer": "^2.2.4",
+    "env-cmd": "^10.0.1",
+    "typescript": "^3.6.3",
     "wait-on": "^3.3.0"
   }
 }

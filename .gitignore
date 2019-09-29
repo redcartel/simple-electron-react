@@ -26,3 +26,4 @@ yarn-error.log*
 hide
 dist
 yarn.lock
+*.tgz
