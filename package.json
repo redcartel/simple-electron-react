@@ -2,6 +2,12 @@
   "name": "simple-electron-react",
   "description": "A simpler Electron & React that solves some problems",
   "version": "0.1.0",
+  "license": "MIT",
+  "author": {
+    "name": "Your Name",
+    "email": "your@email.com",
+    "url": "your.website.com"
+  },
   "main": "public/electron.js",
   "homepage": "./",
   "private": true,
@@ -17,8 +23,8 @@
     }
   },
   "scripts": {
-    "start": "BROWSER=none craco start --config craco.config.electron",
-    "dev": "concurrently \"yarn start\" \"ELECTRON_IS_DEV=1 wait-on http://localhost:3000 && electron .\"",
+    "start": "concurrently \"yarn start\" \"ELECTRON_IS_DEV=1 wait-on http://localhost:3000 && electron .\"",
+    "start:electron": "BROWSER=none craco start --config craco.config.electron",
     "build": "yarn build:electron",
     "build:electron": "env-cmd -f .env.electron craco build --config craco.config.electron.js",
     "test": "craco test",
@@ -46,13 +52,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com:wwlib/cra-craco-electron-example.git"
+    "url": "git+ssh://git@github.com:redcartel/simple-electron-react"
   },
   "keywords": [
-    "react,create-react-app,cra,craco,electron,electron-builder"
+      "react",
+      "create-react-app",
+      "craco",
+      "electron",
+      "electron-builder"
   ],
-  "author": "Andrew Rapo <andrew@wwlib.org> (http://wwlib.org/)",
-  "license": "MIT",
   "devDependencies": {
     "@craco/craco": "^5.2.1",
     "concurrently": "^4.1.2",
