@@ -23,12 +23,12 @@
     }
   },
   "scripts": {
-    "start": "concurrently \"yarn start\" \"ELECTRON_IS_DEV=1 wait-on http://localhost:3000 && electron .\"",
+    "start": "concurrently \"yarn start:electron\" \"ELECTRON_IS_DEV=1 wait-on http://localhost:3000 && electron .\"",
     "start:electron": "BROWSER=none craco start --config craco.config.electron",
     "build": "yarn build:electron",
     "build:electron": "env-cmd -f .env.electron craco build --config craco.config.electron.js",
-    "test": "craco test",
-    "eject": "craco eject",
+    "test": "craco test --config craco.config.electron.js",
+    "eject": "craco eject --config craco.config.electron.js",
     "pack": "electron-builder --dir",
     "dist": "electron-builder"
   },

@@ -26,7 +26,7 @@ With some things reverse-engineered from this:
 
 ## Usage
 
-`yarn dev` launches the project in dev mode
+`yarn start` launches the project in dev mode
 
 To build for distribution:
 

@@ -4,9 +4,13 @@ import './App.css';
 
 import fs from 'fs';
 import electron from 'electron';
+import isDev from 'electron-is-dev';
 
-console.log(fs);
-console.log(electron);
+if (isDev) {
+  console.log("Test fs and electron import:")
+  console.log(fs);
+  console.log(electron);
+}
 
 function App() {
   return (
