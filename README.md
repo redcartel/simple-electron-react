@@ -12,6 +12,8 @@ By Carter Adams, 2019
 
 * Chrome's React devtools installed in electron when running dev
 
+* start, build, and dist tested on Linux so far, still need someone to try it out on Window or Mac
+
 For real, it's just create-react-app set up to work as an electron project.
 
 ## Inspiration
@@ -23,6 +25,10 @@ Inspired by this guide:
 With some things reverse-engineered from this:
 
 <https://github.com/wwlib/cra-craco-electron-example>
+
+And the React devtools setup from this rolled into my `electron.js`
+
+<https://ourcodeworld.com/articles/read/523/how-to-use-the-react-dev-tools-in-electron-framework>
 
 ## Usage
 
@@ -37,6 +43,8 @@ yarn dist
 
 TODO: this is only tested on Linux so far
 
+FIXME: On my Gnome, the app doesn't use the icon in assets
+
 ## Dependencies
 
 I tried to keep dependencies minimal for this project.
@@ -49,7 +57,7 @@ Beyond the normal dependencies installed by `yarn create react-app`, this projec
 * `electron-builder-devtools-installer` - for setting up Chrome's React devtools in Electron
 * `craco` - for overriding some webpack config without ejecting
 * `concurrently`, `wait-on` - launch dev server & electron with single command
-* `env-cmd` - sets environment variables prior to build
+* `env-cmd` - sets environment variables prior to build, I think this helps with Windows, maybe.
 * `typescript` - because something needs it, I forget
 
 ## Icon

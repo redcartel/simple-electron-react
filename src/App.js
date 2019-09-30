@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// simple-electron-react
 import fs from 'fs';
 import electron from 'electron';
 import isDev from 'electron-is-dev';

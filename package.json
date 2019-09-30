@@ -13,20 +13,20 @@
   "private": true,
   "build": {
     "appId": "your.id",
-    "copyright": "Your Copyright Message",
-    "productName": "Simple Electron React",
+    "copyright": "simple-electron-react by redcartel",
+    "productName": "simpleElectronReact",
     "directories": {
-        "buildResources": "assets"
+      "buildResources": "assets"
     },
     "mac": {
-        "category": "public.app-category.utilities"
+      "category": "public.app-category.utilities"
     }
   },
   "scripts": {
     "start": "concurrently \"yarn start:electron\" \"ELECTRON_IS_DEV=1 wait-on http://localhost:3000 && electron .\"",
     "start:electron": "BROWSER=none craco start --config craco.config.electron",
     "build": "yarn build:electron",
-    "build:electron": "env-cmd -f .env.electron craco build --config craco.config.electron.js",
+    "build:electron": "env-cmd -f electron.env craco build --config craco.config.electron.js",
     "test": "craco test --config craco.config.electron.js",
     "eject": "craco eject --config craco.config.electron.js",
     "pack": "electron-builder --dir",
@@ -55,11 +55,11 @@
     "url": "git+ssh://git@github.com:redcartel/simple-electron-react"
   },
   "keywords": [
-      "react",
-      "create-react-app",
-      "craco",
-      "electron",
-      "electron-builder"
+    "react",
+    "create-react-app",
+    "craco",
+    "electron",
+    "electron-builder"
   ],
   "devDependencies": {
     "@craco/craco": "^5.2.1",
